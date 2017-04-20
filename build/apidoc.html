@@ -1,0 +1,425 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+    >log-update (v2.0.0)</a>
+</h1>
+<h4>Log by overwriting the previous output in the terminal. Useful for rendering progress bars, animations, etc.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.log-update">module log-update</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.log-update.log-update">
+            function <span class="apidocSignatureSpan"></span>log-update
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.log-update.clear">
+            function <span class="apidocSignatureSpan">log-update.</span>clear
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.log-update.create">
+            function <span class="apidocSignatureSpan">log-update.</span>create
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.log-update.done">
+            function <span class="apidocSignatureSpan">log-update.</span>done
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.log-update.stderr">
+            function <span class="apidocSignatureSpan">log-update.</span>stderr
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.log-update.stderr">module log-update.stderr</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.log-update.stderr.stderr">
+            function <span class="apidocSignatureSpan">log-update.</span>stderr
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.log-update.stderr.clear">
+            function <span class="apidocSignatureSpan">log-update.stderr.</span>clear
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.log-update.stderr.done">
+            function <span class="apidocSignatureSpan">log-update.stderr.</span>done
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.log-update" id="apidoc.module.log-update">module log-update</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.log-update.log-update" id="apidoc.element.log-update.log-update">
+        function <span class="apidocSignatureSpan"></span>log-update
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">log-update = function () {
+		cliCursor.hide();
+		let out = [].join.call(arguments, &#x27; &#x27;) + &#x27;\n&#x27;;
+		out = wrapAnsi(out, process.stdout.columns || 80, {wordWrap: false});
+		stream.write(ansiEscapes.eraseLines(prevLineCount) + out);
+		prevLineCount = out.split(&#x27;\n&#x27;).length;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.log-update.clear" id="apidoc.element.log-update.clear">
+        function <span class="apidocSignatureSpan">log-update.</span>clear
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">() =&#x3e; {
+		stream.write(ansiEscapes.eraseLines(prevLineCount));
+		prevLineCount = 0;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## API
+
+### logUpdate(text, ...)
+
+Log to stdout.
+
+### logUpdate.<span class="apidocCodeKeywordSpan">clear</span>()
+
+Clear the logged output.
+
+### logUpdate.done()
+
+Persist the logged output.&#x3c;br&#x3e;
+Useful if you want to start a new log session below the current one.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.log-update.create" id="apidoc.element.log-update.create">
+        function <span class="apidocSignatureSpan">log-update.</span>create
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stream =&#x3e; {
+	let prevLineCount = 0;
+
+	const render = function () {
+		cliCursor.hide();
+		let out = [].join.call(arguments, &#x27; &#x27;) + &#x27;\n&#x27;;
+		out = wrapAnsi(out, process.stdout.columns || 80, {wordWrap: false});
+		stream.write(ansiEscapes.eraseLines(prevLineCount) + out);
+		prevLineCount = out.split(&#x27;\n&#x27;).length;
+	};
+
+	render.clear = () =&#x3e; {
+		stream.write(ansiEscapes.eraseLines(prevLineCount));
+		prevLineCount = 0;
+	};
+
+	render.done = () =&#x3e; {
+		prevLineCount = 0;
+		cliCursor.show();
+	};
+
+	return render;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### logUpdate.stderr(text, ...)
+
+Log to stderr.
+
+### logUpdate.stderr.clear()
+### logUpdate.stderr.done()
+
+### logUpdate.<span class="apidocCodeKeywordSpan">create</span>(stream)
+
+Get a `logUpdate` method that logs to the specified stream.
+
+
+## Examples
+
+- [listr](https://github.com/SamVerschueren/listr) - Uses this module to render an interactive task list
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.log-update.done" id="apidoc.element.log-update.done">
+        function <span class="apidocSignatureSpan">log-update.</span>done
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">() =&#x3e; {
+		prevLineCount = 0;
+		cliCursor.show();
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Log to stdout.
+
+### logUpdate.clear()
+
+Clear the logged output.
+
+### logUpdate.<span class="apidocCodeKeywordSpan">done</span>()
+
+Persist the logged output.&#x3c;br&#x3e;
+Useful if you want to start a new log session below the current one.
+
+### logUpdate.stderr(text, ...)
+
+Log to stderr.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.log-update.stderr" id="apidoc.element.log-update.stderr">
+        function <span class="apidocSignatureSpan">log-update.</span>stderr
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stderr = function () {
+		cliCursor.hide();
+		let out = [].join.call(arguments, &#x27; &#x27;) + &#x27;\n&#x27;;
+		out = wrapAnsi(out, process.stdout.columns || 80, {wordWrap: false});
+		stream.write(ansiEscapes.eraseLines(prevLineCount) + out);
+		prevLineCount = out.split(&#x27;\n&#x27;).length;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Clear the logged output.
+
+### logUpdate.done()
+
+Persist the logged output.&#x3c;br&#x3e;
+Useful if you want to start a new log session below the current one.
+
+### logUpdate.<span class="apidocCodeKeywordSpan">stderr</span>(text, ...)
+
+Log to stderr.
+
+### logUpdate.stderr.clear()
+### logUpdate.stderr.done()
+
+### logUpdate.create(stream)
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.log-update.stderr" id="apidoc.module.log-update.stderr">module log-update.stderr</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.log-update.stderr.stderr" id="apidoc.element.log-update.stderr.stderr">
+        function <span class="apidocSignatureSpan">log-update.</span>stderr
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stderr = function () {
+		cliCursor.hide();
+		let out = [].join.call(arguments, &#x27; &#x27;) + &#x27;\n&#x27;;
+		out = wrapAnsi(out, process.stdout.columns || 80, {wordWrap: false});
+		stream.write(ansiEscapes.eraseLines(prevLineCount) + out);
+		prevLineCount = out.split(&#x27;\n&#x27;).length;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Clear the logged output.
+
+### logUpdate.done()
+
+Persist the logged output.&#x3c;br&#x3e;
+Useful if you want to start a new log session below the current one.
+
+### logUpdate.<span class="apidocCodeKeywordSpan">stderr</span>(text, ...)
+
+Log to stderr.
+
+### logUpdate.stderr.clear()
+### logUpdate.stderr.done()
+
+### logUpdate.create(stream)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.log-update.stderr.clear" id="apidoc.element.log-update.stderr.clear">
+        function <span class="apidocSignatureSpan">log-update.stderr.</span>clear
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">() =&#x3e; {
+		stream.write(ansiEscapes.eraseLines(prevLineCount));
+		prevLineCount = 0;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## API
+
+### logUpdate(text, ...)
+
+Log to stdout.
+
+### logUpdate.<span class="apidocCodeKeywordSpan">clear</span>()
+
+Clear the logged output.
+
+### logUpdate.done()
+
+Persist the logged output.&#x3c;br&#x3e;
+Useful if you want to start a new log session below the current one.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.log-update.stderr.done" id="apidoc.element.log-update.stderr.done">
+        function <span class="apidocSignatureSpan">log-update.stderr.</span>done
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">() =&#x3e; {
+		prevLineCount = 0;
+		cliCursor.show();
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Log to stdout.
+
+### logUpdate.clear()
+
+Clear the logged output.
+
+### logUpdate.<span class="apidocCodeKeywordSpan">done</span>()
+
+Persist the logged output.&#x3c;br&#x3e;
+Useful if you want to start a new log session below the current one.
+
+### logUpdate.stderr(text, ...)
+
+Log to stderr.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>

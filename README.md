@@ -1,6 +1,6 @@
 # npmdoc-log-update
 
-#### api documentation for  log-update (v2.0.0)  [![npm package](https://img.shields.io/npm/v/npmdoc-log-update.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-log-update) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-log-update.svg)](https://travis-ci.org/npmdoc/node-npmdoc-log-update)
+#### basic api documentation for  [log-update (v2.0.0)](https://github.com/sindresorhus/log-update#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-log-update.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-log-update) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-log-update.svg)](https://travis-ci.org/npmdoc/node-npmdoc-log-update)
 
 #### Log by overwriting the previous output in the terminal. Useful for rendering progress bars, animations, etc.
 
@@ -21,24 +21,35 @@
 ```json
 
 {
-    "name": "log-update",
-    "version": "2.0.0",
-    "description": "Log by overwriting the previous output in the terminal. Useful for rendering progress bars, animations, etc.",
-    "license": "MIT",
-    "repository": "sindresorhus/log-update",
     "author": {
         "name": "Sindre Sorhus",
         "url": "sindresorhus.com"
     },
+    "bugs": {
+        "url": "https://github.com/sindresorhus/log-update/issues"
+    },
+    "dependencies": {
+        "ansi-escapes": "^1.0.0",
+        "cli-cursor": "^2.0.0",
+        "wrap-ansi": "^2.1.0"
+    },
+    "description": "Log by overwriting the previous output in the terminal. Useful for rendering progress bars, animations, etc.",
+    "devDependencies": {
+        "xo": "*"
+    },
+    "directories": {},
+    "dist": {
+        "shasum": "7f4354d7be1be62b724fcbb3c4b94454c0db5e26",
+        "tarball": "https://registry.npmjs.org/log-update/-/log-update-2.0.0.tgz"
+    },
     "engines": {
         "node": ">=4"
-    },
-    "scripts": {
-        "test": "xo && node test.js"
     },
     "files": [
         "index.js"
     ],
+    "gitHead": "d44b643f424fdb8672f1770de77517ef273fae07",
+    "homepage": "https://github.com/sindresorhus/log-update#readme",
     "keywords": [
         "log",
         "logger",
@@ -57,14 +68,29 @@
         "bar",
         "animation"
     ],
-    "dependencies": {
-        "ansi-escapes": "^1.0.0",
-        "cli-cursor": "^2.0.0",
-        "wrap-ansi": "^2.1.0"
+    "license": "MIT",
+    "maintainers": [
+        {
+            "name": "kevva"
+        },
+        {
+            "name": "samverschueren"
+        },
+        {
+            "name": "sindresorhus"
+        }
+    ],
+    "name": "log-update",
+    "optionalDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sindresorhus/log-update.git"
     },
-    "devDependencies": {
-        "xo": "*"
-    }
+    "scripts": {
+        "test": "xo && node test.js"
+    },
+    "version": "2.0.0",
+    "bin": {}
 }
 ```
 
